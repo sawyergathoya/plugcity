@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product-details1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional CSS for small view-more button */
+        .additional-info {
+            display: none; /* Initially hide the additional information */
+            margin-top: 1rem;
+            color: #f5c518;
+        }
+        .additional-info.visible {
+            display: block; /* Show when the 'visible' class is added */
+        }
+        .view-more-button {
+            background: transparent; /* Make the background transparent */
+            border: 2px solid #776c5c; /* Add border to make the button visible */
+            border-radius: 15px; /* Curve the left and right sides */
+            color: #776c5c; /* Set text color to match border */
+            padding: 0.25rem 0.75rem; /* Smaller padding for a more compact button */
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            margin-top: 1rem;
+            font-size: 0.875rem; /* Smaller font size */
+        }
+        .view-more-button:hover {
+            background: #2c2c2c; /* Background color on hover */
+            color: #fff; /* Change text color to white on hover */
+            transform: scale(1.05); /* Slight scaling on hover for interaction */
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="product-details-container">
+            <header class="product-details-header">
+                <h1>Details</h1>
+                <a href="Index.html" class="back-button">Back to Products</a>
+            </header>
+            <main class="product-details">
+                <div class="product-image">
+                    <img src="Nike Air Max 97.jpg" alt="Nike Air Max 97">
+                </div>
+                <div class="product-info">
+                    <h2>Nike Air Max 97</h2>
+                    <p class="price">KES 2500.00</p>
+                    <p class="description">Nike Air Max 97 is known for its unique water-ripple line design. This shoe generally goes for $160 on the Nike website.</p>
+                    <div class="button-group">
+                        <button 
+                            class="add-to-cart-button" 
+                            data-product-name="Nike Air Max 97" 
+                            data-product-price="2500.00" 
+                            data-product-quantity="1"
+                        >Add to Cart</button>
+                        <a href="Cart.html" class="view-cart-button">View Cart</a>
+                    </div>
+
+                     <!-- View More Button -->
+                     <button class="view-more-button">View More</button>
+                    
+                     <!-- Additional Info -->
+                     <div class="additional-info">
+                         <p>3 Cookies @ Ksh 250</p>
+                     </div>
+                     
+                </div>
+            </main>
+            <footer class="product-details-footer">
+                <p>&copy; 2024 Plug City</p>
+            </footer>
+        </div>
+        <div class="reviews-container">
+            <h2>Reviews and Ratings</h2>
+            <div class="review">
+                <h3>Edward Wayne</h3>
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>Great product, highly recommend!</p>
+                </div>
+            </div>
+            <div class="review-form">
+                <h3>Write a Review</h3>
+                <form>
+                    <label for="reviewer-name">Name:</label>
+                    <input type="text" id="reviewer-name" name="reviewer-name" required>
+
+                    <div class="rating">
+                        <label for="rating">Rating:</label>
+                        <div class="stars">
+                            <i class="fa fa-star" data-value="1"></i>
+                            <i class="fa fa-star" data-value="2"></i>
+                            <i class="fa fa-star" data-value="3"></i>
+                            <i class="fa fa-star" data-value="4"></i>
+                            <i class="fa fa-star" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="rating" name="rating" value="0">
+                    </div>
+
+                    <label for="review-text">Review:</label>
+                    <textarea id="review-text" name="review-text" required></textarea>
+
+                    <button type="submit" class="submit-review-button">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('.stars i');
+            const ratingInput = document.getElementById('rating');
+
+            stars.forEach(star => {
+                star.addEventListener('mouseover', () => {
+                    const value = parseInt(star.getAttribute('data-value'));
+                    stars.forEach(s => {
+                        s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= value);
+                    });
+                });
+
+                star.addEventListener('mouseout', () => {
+                    const value = parseInt(ratingInput.value);
+                    stars.forEach(s => {
+                        s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= value);
+                    });
+                });
+
+                star.addEventListener('click', () => {
+                    const value = parseInt(star.getAttribute('data-value'));
+                    ratingInput.value = value;
+                    stars.forEach(s => {
+                        s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= value);
+                    });
+                });
+            });
+
+            // Toggle additional information
+            const viewMoreButton = document.querySelector('.view-more-button');
+            const additionalInfo = document.querySelector('.additional-info');
+            
+            viewMoreButton.addEventListener('click', () => {
+                additionalInfo.classList.toggle('visible');
+                viewMoreButton.textContent = additionalInfo.classList.contains('visible') ? 'View Less' : 'View More';
+            });
+        });
+    </script>
+</body>
+</html>

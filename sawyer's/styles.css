@@ -1,0 +1,82 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif; /* Elegant font */
+}
+
+body {
+    background: linear-gradient(135deg, #0d0d0d, #2c2c2c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #e0e0e0;
+}
+
+.login-container {
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #b0b0b0;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+.login-button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(60deg, #008039, #008039); /* Dark and golden gradient */
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #B7BF96, #B7BF96); /* Inverted gradient for hover effect */
+}
+
+.signup-link {
+    margin-top: 1rem;
+    color: #b0b0b0;
+}
+
+.signup-link a {
+    color: #008039; /* Gold color for the link */
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}

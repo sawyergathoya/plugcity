@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="cart-container">
+        <header class="cart-header">
+            <h1>Shopping Cart</h1>
+            <a href="Index.html" class="continue-shopping">Continue Shopping</a>
+        </header>
+        <main class="cart-content">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <p><strong>Total: <span id="cart-total">KES 0.00</span></strong></p>
+                <a href="checkout.html" class="checkout-button">Proceed to Checkout</a>
+            </div>
+        </main>
+        <footer class="cart-footer">
+            <p>&copy; 2024 Plug City</p>
+        </footer>
+    </div>
+    <script>
+        // Load cart items into the table
+        function loadCartItems() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = document.getElementById('cart-items');
+            let total = 0;
+            
+            cartItems.innerHTML = ''; // Clear previous items
+            
+            cart.forEach(item => {
+                let row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>KES ${item.price.toFixed(2)}</td>
+                    <td>
+                        <input type="number" value="${item.quantity}" min="1" class="quantity-input" data-product-name="${item.name}">
+                    </td>
+                    <td>KES ${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="remove-button" data-product-name="${item.name}">Remove</button></td>
+                `;
+                cartItems.appendChild(row);
+                total += item.price * item.quantity;
+            });
+
+            document.getElementById('cart-total').innerText = `KES ${total.toFixed(2)}`;
+
+            // Store total amount in local storage
+            localStorage.setItem('cartTotal', total.toFixed(2));
+
+            attachEventListeners(); // Reattach event listeners
+        }
+
+        function updateQuantity(name, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.forEach(item => {
+                if (item.name === name) {
+                    item.quantity = parseInt(quantity);
+                }
+            });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCartItems();
+        }
+
+        function removeItem(name) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.name !== name);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCartItems();
+        }
+
+        function attachEventListeners() {
+            // Attach event listeners to quantity inputs and remove buttons
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', () => {
+                    const productName = input.getAttribute('data-product-name');
+                    const quantity = input.value;
+                    updateQuantity(productName, quantity);
+                });
+            });
+
+            document.querySelectorAll('.remove-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const productName = button.getAttribute('data-product-name');
+                    removeItem(productName);
+                });
+            });
+        }
+
+        loadCartItems(); // Initial load
+    </script>
+</body>
+</html>

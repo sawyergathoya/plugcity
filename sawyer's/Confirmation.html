@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="order-confirmation.css">
+</head>
+<body>
+    <div class="confirmation-container">
+        <header class="confirmation-header">
+            <h1>Your Order is being Processed!</h1>
+        </header>
+        <main class="confirmation-content">
+            <div class="contact-info">
+                <h2>For Delivery Arrangements</h2>
+                <p>Call us at:</p>
+                <div class="phone-number-container">
+                    <span class="phone-number" id="phone-number">+254 712 345 678</span>
+                    <button class="copy-button" onclick="copyPhoneNumber()">Copy Number</button>
+                </div>
+            </div>
+            <a href="Index.html" class="continue-shopping-button">Continue Shopping</a>
+        </main>
+        <footer class="confirmation-footer">
+            <!-- Optional footer content can be added here -->
+        </footer>
+    </div>
+
+    <script>
+        function copyPhoneNumber() {
+            const phoneNumber = document.getElementById('phone-number').textContent;
+            navigator.clipboard.writeText(phoneNumber)
+                .then(() => {
+                    alert('Phone number copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        }
+    </script>
+</body>
+</html>

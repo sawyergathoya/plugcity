@@ -1,0 +1,299 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif; /* Elegant font */
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e1e, #2c2c2c); /* Modern gradient */
+    color: #e0e0e0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.page-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 100vw;
+    padding: 2rem; /* Increased padding for better spacing */
+    gap: 1.5rem; /* Space between containers */
+}
+
+/* Container styling */
+.product-details-container,
+.reviews-container {
+    background-color: rgba(30, 30, 30, 0.9); /* Slightly lighter background */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 2rem; /* Spacious padding */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between elements */
+    flex: 1; /* Equal space distribution */
+}
+
+/* Ensure containers take up half the width on desktop */
+.product-details-container,
+.reviews-container {
+    max-width: 50%; /* Half width on desktop */
+}
+
+/* Header styling for product details */
+.product-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444; /* Subtle border */
+    padding-bottom: 1rem;
+}
+
+.product-details-header h1 {
+    font-size: 2rem; /* Prominent title */
+    color: #f0f0f0; /* Light color for readability */
+    letter-spacing: 0.5px; /* Slight letter spacing */
+}
+
+/* Back button styling */
+.back-button {
+    background: #4b3a22; /* Solid background color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.75rem 1.25rem; /* Ample padding */
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #6f4e2f; /* Slightly lighter on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Product details section */
+.product-details {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    gap: 2rem; /* Space between elements */
+}
+
+.product-image {
+    width: 100%; /* Full width image */
+    height: auto; /* Maintain aspect ratio */
+    margin: auto; /* Center image */
+}
+
+.product-image img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.product-info {
+    flex: 2;
+}
+
+.price {
+    font-size: 1.75rem; /* Modern price size */
+    color: #f5c518; /* Gold color */
+}
+
+.description {
+    margin-bottom: 1.5rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between buttons */
+}
+
+.add-to-cart-button,
+.view-cart-button {
+    background: #4b3a22; /* Solid background color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.75rem 1.25rem; /* Ample padding */
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.add-to-cart-button:hover,
+.view-cart-button:hover {
+    background: #6f4e2f; /* Slightly lighter on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Footer for product details */
+.product-details-footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #444; /* Subtle border */
+    margin-top: auto;
+}
+
+.product-details-footer p {
+    color: #ffffff;
+}
+
+/* Reviews container styling */
+.reviews-container {
+    background-color: rgba(30, 30, 30, 0.9); /* Slightly lighter background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 2rem; /* Spacious padding */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between elements */
+    flex: 1; /* Equal space distribution */
+}
+
+/* Header styling for reviews container */
+.reviews-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem; /* Modern heading size */
+    color: #f0f0f0; /* Light color */
+    border-bottom: 1px solid #444; /* Subtle underline */
+    padding-bottom: 0.5rem; /* Spacing */
+}
+
+/* Review block styling */
+.review {
+    padding: 1rem; /* Spacing inside review */
+    border-radius: 8px; /* Rounded corners */
+    background-color: rgba(45, 45, 45, 0.8); /* Slightly lighter background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.review p {
+    margin-bottom: 0.5rem; /* Spacing between text elements */
+    color: #e0e0e0; /* Light text color */
+}
+
+.review .stars {
+    margin-bottom: 0.5rem; /* Spacing for star rating */
+}
+
+/* Review form styling */
+.review-form {
+    margin-top: 2rem;
+    padding: 1.5rem; /* Increased padding for form */
+    border-radius: 8px; /* Rounded corners */
+    background-color: rgba(45, 45, 45, 0.8); /* Slightly lighter background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.review-form h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem; /* Modern form heading size */
+    color: #f0f0f0; /* Light color */
+}
+
+/* Form input styling */
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #555; /* Subtle border */
+    background: #333;
+    color: #e0e0e0;
+    margin-bottom: 1rem; /* Spacing between inputs */
+    font-size: 1rem; /* Consistent font size */
+}
+
+/* Submit button styling */
+.submit-review-button {
+    background: #4b3a22; /* Solid background color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    font-size: 1rem; /* Consistent font size */
+}
+
+.submit-review-button:hover {
+    background: #6f4e2f; /* Slightly lighter on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Star Rating Styles */
+.stars {
+    display: flex;
+    direction: ltr; /* Left to right */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    user-select: none;
+}
+
+.stars i {
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stars i.active {
+    color: #f5c518; /* Gold color for active stars */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column; /* Stack containers vertically */
+        gap: 1rem; /* Space between containers */
+    }
+    
+    .product-details-container,
+    .reviews-container {
+        max-width: 100%; /* Full width on mobile */
+    }
+    
+    .product-details-header h1 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
+    
+    .back-button {
+        padding: 0.5rem 1rem; /* Smaller padding */
+        font-size: 0.875rem; /* Smaller font size */
+    }
+    
+    .price {
+        font-size: 1.25rem; /* Smaller price */
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 0.5rem; /* Reduced gap */
+    }
+    
+    .add-to-cart-button,
+    .view-cart-button {
+        padding: 0.5rem 1rem; /* Smaller padding */
+        font-size: 0.875rem; /* Smaller font size */
+    }
+    
+    .reviews-container {
+        display: none; /* Hide reviews on mobile */
+    }
+    
+    .review-form {
+        margin-top: 2rem;
+    }
+    
+    .review-form h3 {
+        font-size: 1.125rem; /* Smaller form heading */
+    }
+}

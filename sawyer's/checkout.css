@@ -1,0 +1,230 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif; /* Elegant font */
+}
+
+body {
+    background: linear-gradient(135deg, #0d0d0d, #2c2c2c);
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.checkout-container {
+    background-color: rgba(30, 30, 30, 0.95); /* Slightly lighter background */
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); /* Softer shadow for a polished look */
+    width: 90vw; /* Adjusted width for better responsiveness */
+    max-width: 800px; /* Adjusted width for a more focused design */
+    padding: 2.5rem; /* Increased padding for a more spacious feel */
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Adjust height to fit content */
+    overflow: hidden; /* Prevents content from overflowing */
+    position: relative; /* Allows positioning of the back button */
+}
+
+.back-button {
+    background: linear-gradient(135deg, #4b3a22, #6e4c2a); /* Refined gradient */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    position: absolute; /* Absolute positioning */
+    top: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #6f4e2f, #4b3a22); /* Inverted gradient for hover effect */
+    transform: scale(1.05); /* Slight scaling on hover for interaction */
+}
+
+.checkout-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.checkout-header h1 {
+    color: #e0e0e0;
+    font-size: 2.25rem; /* Slightly larger for emphasis */
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Added margin for spacing */
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Increased margin for spacing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #333;
+    color: #e0e0e0;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #f5c518;
+    box-shadow: 0 0 5px rgba(245, 197, 24, 0.5); /* Light shadow on focus */
+    outline: none;
+}
+
+.form-actions {
+    margin-top: 2rem;
+}
+
+.submit-button {
+    background: linear-gradient(135deg, #4b3a22, #6e4c2a); /* Refined gradient */
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    text-align: center; /* Ensures text is centered */
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #6f4e2f, #4b3a22); /* Inverted gradient for hover effect */
+    transform: scale(1.05); /* Slight scaling on hover for interaction */
+}
+
+.checkout-footer {
+    text-align: center;
+    padding: 1.5rem; /* Increased padding for consistency */
+    border-top: 1px solid #444; /* Lighter border for consistency */
+    margin-top: auto;
+}
+
+.checkout-footer p {
+    color: #b0b0b0;
+    font-size: 0.875rem; /* Slightly smaller font for a clean finish */
+}
+
+/* Additional Styles for Cart Totals Section */
+.cart-totals {
+    margin-top: 1.5rem; /* Spacing above the totals */
+    padding: 1rem;
+    background: #444; /* Background for the totals section */
+    border-radius: 8px;
+}
+
+.cart-totals p {
+    margin: 0.5rem 0; /* Margin for spacing between total amounts */
+    font-size: 1rem;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 1.5rem; /* Reduced padding for smaller screens */
+        width: 95vw; /* Increased width for better usage of screen space */
+    }
+
+    .checkout-header h1 {
+        font-size: 1.75rem; /* Adjusted font size for smaller screens */
+    }
+
+    .form-group label {
+        font-size: 0.875rem; /* Adjusted label font size for better fit */
+    }
+
+    .form-group input {
+        padding: 0.5rem; /* Reduced padding for smaller screens */
+        font-size: 0.875rem; /* Adjusted input font size */
+    }
+
+    .submit-button {
+        padding: 0.5rem 1rem; /* Reduced padding for smaller screens */
+        font-size: 1rem; /* Adjusted button font size */
+    }
+
+    .cart-totals {
+        padding: 0.75rem; /* Reduced padding for smaller screens */
+    }
+
+    .cart-totals p {
+        font-size: 0.875rem; /* Adjusted font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-container {
+        padding: 1rem; /* Further reduced padding for very small screens */
+        width: 100vw; /* Full width for very small screens */
+    }
+
+    .checkout-header h1 {
+        font-size: 1.5rem; /* Adjusted font size for very small screens */
+    }
+
+    .form-group label {
+        font-size: 0.75rem; /* Adjusted label font size for better fit */
+    }
+
+    .form-group input {
+        padding: 0.5rem; /* Further reduced padding for very small screens */
+        font-size: 0.75rem; /* Adjusted input font size */
+    }
+
+    .submit-button {
+        padding: 0.5rem; /* Further reduced padding for very small screens */
+        font-size: 0.875rem; /* Adjusted button font size */
+    }
+
+    .cart-totals {
+        padding: 0.5rem; /* Further reduced padding for very small screens */
+    }
+
+    .cart-totals p {
+        font-size: 0.75rem; /* Adjusted font size for very small screens */
+    }
+
+    .back-button {
+        padding: 0.5rem 1rem; /* Reduced padding for very small screens */
+        font-size: 0.875rem; /* Adjusted font size for very small screens */
+    }
+}

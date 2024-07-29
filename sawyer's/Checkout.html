@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <header class="checkout-header">
+            <a href="Cart.html" class="back-button">Back to Cart</a>
+            <h1>Checkout</h1>
+        </header>
+        <main class="checkout-content">
+            <form action="Confirmation.html" method="post" class="checkout-form">
+                <fieldset class="fieldset">
+                    <legend>Lipa na M-PESA</legend>
+                    <div class="form-group">
+                        <label for="mpesa-number">Buy Goods Till Number</label>
+                        <input type="text" id="mpesa-number" name="mpesa-number" value="123456" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="total-amount">Total Amount</label>
+                        <input type="text" id="total-amount" name="total-amount" readonly>
+                    </div>
+                    <div class="form-group">
+                        <p>Please complete the payment using the M-Pesa till number above. Once payment is done, click the button below to confirm your order.</p>
+                    </div>
+                </fieldset>
+                
+                <!-- Cart Totals Section -->
+                <div class="form-actions">
+                    <button type="submit" class="submit-button" onclick="clearCart()">Place Order</button>
+                </div>
+            </form>
+        </main>
+        <footer class="checkout-footer">
+            <p>&copy; 2024 Plug City</p>
+        </footer>
+    </div>
+    <script>
+        // Retrieve and update total amount from local storage
+        window.onload = function() {
+            const cartTotal = localStorage.getItem('cartTotal');
+            const originalPrice = parseFloat(cartTotal) || 0;
+            const discountedPrice = originalPrice / 10;
+
+            // Display the one-tenth value in the total amount field
+            document.getElementById('total-amount').value = discountedPrice.toFixed(2);
+        };
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            localStorage.removeItem('cartTotal');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Avenir', serif; /* Elegant font */
+}
+
+body {
+    background: linear-gradient(135deg, #0d0d0d, #2c2c2c);
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.products-container {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full viewport height */
+    max-width: none; /* Remove maximum width constraint */
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem; /* Increased padding for better spacing */
+    overflow: hidden; /* Hide overflow to keep layout clean */
+}
+
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444; /* Slightly lighter border color */
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    height: 80px; /* Increased height for larger logo */
+}
+
+.products-header .logo {
+    width: 80px; /* Larger logo */
+    height: 80px; /* Larger logo */
+    border-radius: 50%;
+    margin-right: 15px; /* Adjusted spacing for larger logo */
+    background: #fff; /* Optional: Add a background color to enhance logo visibility */
+    border: 2px solid #e0e0e0; /* Optional: Add a border for a cleaner look */
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    position: relative; /* Relative positioning for icon */
+    flex-grow: 1; /* Allow search bar container to grow */
+    max-width: 500px; /* Increased maximum width */
+}
+
+.search-wrapper {
+    position: relative; /* Allows absolute positioning of the icon */
+    width: 100%; /* Ensure wrapper uses full width of container */
+}
+
+#search-bar {
+    width: 100%;
+    padding: 0.5rem 2.5rem; /* Increased padding for better spacing */
+    border: 1px solid #444; /* Slightly lighter border color */
+    border-radius: 6px; /* Slightly more rounded corners */
+    background: rgba(50, 50, 50, 0.9); /* Darker background for better contrast */
+    color: #e0e0e0;
+    font-size: 1rem;
+    outline: none;
+}
+
+#search-bar::placeholder {
+    color: #b0b0b0; /* Placeholder text color */
+}
+
+.search-icon {
+    position: absolute;
+    right: 0.75rem; /* Adjusted for better alignment */
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
+    color: #e6b208; /* Icon color */
+    font-size: 1.1rem; /* Slightly larger icon for better visibility */
+    pointer-events: all; /* Make sure it can be clicked */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.view-cart-button {
+    background: linear-gradient(135deg, #4a3b1e, #785b2f); /* Refined gradient */
+    border: none;
+    border-radius: 6px; /* Slightly more rounded corners */
+    color: #fff;
+    padding: 0.6rem 1.2rem; /* Slightly increased padding */
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-cart-button:hover {
+    background: linear-gradient(135deg, #5b4a2f, #4a3b1e); /* Inverted gradient for hover effect */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Fixed 5 items per row */
+    gap: 1.5rem; /* Increased space between items */
+    overflow-y: auto; /* Allows vertical scrolling */
+    max-height: calc(100vh - 7rem); /* Adjust height to fit in the container */
+    padding-bottom: 1rem; /* Padding to accommodate scrollbar if needed */
+    grid-auto-rows: minmax(340px, auto); /* Adjust height to fit taller items */
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    background: rgba(45, 45, 45, 0.9); /* Slightly lighter background */
+    border-radius: 12px; /* More rounded corners */
+    padding: 0; /* Remove padding to ensure full image coverage */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Refined shadow */
+    text-align: center;
+    position: relative; /* To ensure absolute positioning of children */
+    width: 100%;
+    height: 340px; /* Increased height to make items taller */
+    overflow: hidden; /* Hide any overflow to keep rounded corners clean */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.product-item:hover {
+    transform: scale(1.02); /* Slight scale-up effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+}
+
+.product-item img {
+    width: 100%;
+    height: 50%; /* Ensure image occupies top half */
+    object-fit: cover; /* Ensures image covers the top half */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Increased padding for better spacing */
+    height: 50%; /* Ensure details occupy the bottom half */
+    background: rgba(45, 45, 45, 0.9); /* Match background for seamless look */
+}
+
+.product-details h3, .product-details p {
+    margin-bottom: 0.75rem; /* Increased space between name and price */
+    color: #e0e0e0;
+    font-weight: normal; /* Normal weight for better readability */
+}
+
+.product-actions {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Increased space between buttons */
+}
+
+.details-button, .add-to-cart-button {
+    background: linear-gradient(135deg, #4a3b1e, #785b2f); /* Refined gradient */
+    border: none;
+    border-radius: 6px; /* Slightly more rounded corners */
+    color: #fff;
+    padding: 0.6rem 1rem; /* Increased padding for better click area */
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%; /* Make buttons the same width */
+}
+
+.details-button:hover, .add-to-cart-button:hover {
+    background: linear-gradient(135deg, #5b4a2f, #4a3b1e); /* Inverted gradient for hover effect */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+}
+
+.add-to-cart-button {
+    margin-top: 0.5rem; /* Space between buttons */
+}
+
+.products-footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #444; /* Slightly lighter border color */
+    margin-top: auto;
+}
+
+.products-footer p {
+    color: #ffffff;
+    font-size: 0.9rem; /* Slightly smaller text for footer */
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .products-list {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    }
+}
+
+@media (max-width: 992px) {
+    .products-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .products-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto; /* Adjust height */
+    }
+
+    .products-header .logo {
+        width: 60px; /* Smaller logo */
+        height: 60px; /* Smaller logo */
+    }
+
+    .search-bar-container {
+        margin: 1rem 0;
+    }
+
+    .products-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        gap: 1rem; /* Reduce gap between items */
+    }
+}
+
+@media (max-width: 576px) {
+    .products-list {
+        grid-template-columns: 1fr; /* 1 item per row */
+    }
+
+    .product-item {
+        height: auto; /* Adjust height */
+    }
+}
